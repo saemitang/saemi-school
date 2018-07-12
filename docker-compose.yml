@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mysql:
+    container_name: school-mysql
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=school
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=yDb.435rT
