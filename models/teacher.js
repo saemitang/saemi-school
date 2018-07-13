@@ -15,4 +15,4 @@ module.exports = (sequelize, type) => {
         	unique: true
         }
     })
-}
+};

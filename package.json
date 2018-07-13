@@ -1,10 +1,11 @@
 {
   "name": "saemi-school",
   "version": "1.0.0",
-  "description": "Generated with Eclipse npm Tools",
-  "main": "index.js",
+  "description": "A Saemi School API",
+  "homepage": "https://github.com/saemitang/saemi-school/",
+  "main": "app.js",
   "scripts": {
-    "test": "echo 'Error: no test specified' && exit 1"
+    "test": "mocha tests"
   },
   "author": "Sam Tang",
   "license": "ISC",
@@ -12,7 +13,13 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "helmet": "^3.12.1",
+    "morgan": "^1.9.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
   }
 }

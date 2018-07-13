@@ -2,33 +2,29 @@
  * School routes
  */
 
-const { Teacher, Student } = require('../sequelize')
+const { Teacher, Student } = require('../sequelize');
 
 exports.register = function(req, res) {
-    console.log(req.body)
-    
 	Teacher.findOrCreate({
 		where: { email: req.body.teacher }
 	})
 	.spread((teacher, created) => teacher)
 	.then(teacher => {
 		for (const email of req.body.students) {
-			console.log("email:" + email)
-			
 			Student.findOrCreate({
 				where: { email: email }
 			})
 			.spread((student, created) => student)
 			.then(student => {
-				teacher.addStudent(student)
+				teacher.addStudent(student);
 			})
 		}
 		
-		return teacher
+		return teacher;
 	})
 	.then(teacher => res.status(204).send())
-	.catch(err => res.status(400).json({ "message": "Error registering" }))
-}
+	.catch(err => res.status(400).json({ "message": "Error registering" }));
+};
 
 exports.commonstudents = function(req, res) {
 	Student.findAll({
@@ -37,45 +33,41 @@ exports.commonstudents = function(req, res) {
 		]
 	})
 	.then(students => {
-		let filteredStudents = []
+		let filteredStudents = [];
 		
 		if (Array.isArray(req.query.teacher)) {
-			let query = Array.from(req.query.teacher)
+			let query = Array.from(req.query.teacher);
 			
 			for (const student of students) {
-				let emails = student.teachers.map(teacher => teacher.email)
+				let emails = student.teachers.map(teacher => teacher.email);
 				
 				if (query.every(item => emails.indexOf(item) != -1)) {
-					filteredStudents.push(student)
+					filteredStudents.push(student);
 				}
 			}
 		} else {
-			students.every(student => filteredStudents.push(student))
+			students.every(student => filteredStudents.push(student));
 		}
 		
-		return filteredStudents.map(student => student.email)
+		return filteredStudents.map(student => student.email);
 	})
-	.then(emails => res.json({ "students" : emails }))
-}
+	.then(emails => res.json({ "students" : emails }));
+};
 
 exports.suspend = function(req, res) {
-    console.log(req.body)
-    
     Student.update({
     	active: false
     }, {
     	where: { email: req.body.student }
     })
     .then(() => res.status(204).send())
-    .catch(err => res.status(400).json({ "message": "Error suspending student" }))
-}
+    .catch(err => res.status(400).json({ "message": "Error suspending student" }));
+};
 
 exports.retrievefornotifications = function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     
-    let emails = req.body.notification.split(" ").filter(item => item.startsWith("@")).map(mentioned => mentioned.substring(1))
-    
-    console.log("emails: " + emails)
+    let emails = req.body.notification.split(" ").filter(item => item.startsWith("@")).map(mentioned => mentioned.substring(1));
     
     Teacher.findOne({
     	where: {
@@ -85,8 +77,13 @@ exports.retrievefornotifications = function(req, res) {
     	]
     })
     .then(teacher => {
-    	teacher.students.every(student => emails.push(student.email))
-    	return emails
+    	teacher.students.every(student => {
+    		if (emails.indexOf(student.email) == -1) {
+    			emails.push(student.email);
+    		}
+    	});
+    	
+    	return emails;
     })
-    .then(emails => res.json({ recipents: emails }))
-}
+    .then(emails => res.json({ recipients: emails }));
+};
