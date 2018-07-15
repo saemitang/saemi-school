@@ -45,7 +45,7 @@ Install Chai and SuperTest
 `npm install chai supertest -D`
 
 ### Unit Tests
-Unit tests requires school-mysql container to be up before executing.
+Unit tests requires **school-mysql** container to be up before executing.
 
 ## Node.js Stuffs
 The project uses the following packages,
