@@ -1,5 +1,5 @@
 # Saemi School
-An API example implementation using Node.js, MySQL and Docker
+An API implementation example using Node.js, MySQL and Docker
 
 ## Running
 The project uses Docker Compose to run the following Docker containers,
