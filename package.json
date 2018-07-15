@@ -5,6 +5,7 @@
   "homepage": "https://github.com/saemitang/saemi-school/",
   "main": "app.js",
   "scripts": {
+  	"start": "node app.js",
     "test": "mocha tests"
   },
   "author": "Sam Tang",

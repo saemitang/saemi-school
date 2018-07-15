@@ -6,8 +6,16 @@ const Sequelize = require('sequelize');
 const TeacherModel = require('./models/teacher');
 const StudentModel = require('./models/student');
 
+const env = process.env.NODE_ENV || 'development';
+
+let host = 'localhost'
+
+if (env == 'production') {
+	host = 'mysql'
+}
+
 const sequelize = new Sequelize('school', 'admin', 'yDb.435rT', {
-	host: 'localhost',
+	host: host,
     dialect: 'mysql',
     pool: {
     	max: 10,

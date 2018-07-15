@@ -46,7 +46,9 @@ exports.commonstudents = function(req, res) {
 				}
 			}
 		} else {
-			students.every(student => filteredStudents.push(student));
+			for (const student of students) {
+				filteredStudents.push(student);
+			}
 		}
 		
 		return filteredStudents.map(student => student.email);
@@ -65,8 +67,6 @@ exports.suspend = function(req, res) {
 };
 
 exports.retrievefornotifications = function(req, res) {
-    console.log(req.body);
-    
     let emails = req.body.notification.split(" ").filter(item => item.startsWith("@")).map(mentioned => mentioned.substring(1));
     
     Teacher.findOne({
@@ -77,11 +77,11 @@ exports.retrievefornotifications = function(req, res) {
     	]
     })
     .then(teacher => {
-    	teacher.students.every(student => {
+    	for (const student of teacher.students) {
     		if (emails.indexOf(student.email) == -1) {
     			emails.push(student.email);
     		}
-    	});
+    	}
     	
     	return emails;
     })
