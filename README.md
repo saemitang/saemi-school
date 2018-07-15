@@ -32,7 +32,7 @@ Initialize project
 
 `npm init -y`
 
-Install Body Parser, Express.js, Sequelize, MySQL, Helmet, Morgan
+Install Body Parser, Express, Sequelize, MySQL, Helmet, Morgan
 
 `npm install body-parser express sequelize mysql2 helmet morgan`
 
@@ -66,8 +66,14 @@ Run a _single_ unit test
 ## Node.js Stuffs
 The project uses the following packages,
 * [Body Parser](https://www.npmjs.com/package/body-parser)
-* [Express.js](https://expressjs.com)
-* [Sequelize](http://docs.sequelizejs.com)
+* [Express](https://www.npmjs.com/package/express)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
+* [MySQL2](https://www.npmjs.com/package/mysql2)
+* [Helmet](https://www.npmjs.com/package/helmet)
+* [Morgan](https://www.npmjs.com/package/morgan)
+
+### References
+* [Security best practices for production Express apps](https://expressjs.com/en/advanced/best-practice-security.html)
 
 ## Docker Stuffs
 ### Images
