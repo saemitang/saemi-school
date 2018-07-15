@@ -3,8 +3,9 @@
  */
 
 const express = require('express');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
+const morgan = require('morgan');
 
 const teachers = require('./routes/teachers');
 const students = require('./routes/students');
@@ -12,6 +13,7 @@ const school = require('./routes/school');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(helmet());
 app.use(morgan('combined'));
 app.use(logErrors);
 app.use(errorHandler);
