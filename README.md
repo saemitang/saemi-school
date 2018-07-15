@@ -45,6 +45,7 @@ Install Chai and SuperTest
 `npm install chai supertest -D`
 
 ### Run
+Before running the app, make sure the **school-mysql** container is up and running
 
 Run the app for development or testing
 
