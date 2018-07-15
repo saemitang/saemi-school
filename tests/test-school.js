@@ -36,7 +36,7 @@ describe('School routes', function() {
 	it('should suspend a student', function(done) {
 		request(app)
 			.post('/suspend')
-			.send({ "student": "studentjon123@example.com" })
+			.send({ "student": "studentjon@example.com" })
 			.set('Accept', 'application/json')
 			.expect(204)
 			.end(done);

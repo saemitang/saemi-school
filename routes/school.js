@@ -62,7 +62,13 @@ exports.suspend = function(req, res) {
     }, {
     	where: { email: req.body.student }
     })
-    .then(() => res.status(204).send())
+    .spread((affectedRows) => {
+    	if (affectedRows > 0) {
+    		res.status(204).send();    		
+    	} else {
+    		throw new Error('No such student');
+    	}
+    })
     .catch(err => res.status(400).json({ "message": "Error suspending student" }));
 };
 
