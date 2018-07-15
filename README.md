@@ -12,7 +12,7 @@ Run _both_ **school-api** and **school-mysql** containers together
 
 The API is accessible on http://localhost:8080 when running on Docker.
 
-Sometimes you might want to run only school-mysql container for development or testing.
+Sometimes you might want to run only **school-mysql** container for development or testing.
 
 Run _only_ **school-mysql** container
 
