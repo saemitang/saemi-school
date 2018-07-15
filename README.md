@@ -1,5 +1,5 @@
 # Saemi School
-An API example implementation using Node.js, MySQL and Docker
+An API implementation example using Node.js, MySQL and Docker
 
 ## Running
 The project uses Docker Compose to run the following Docker containers,
@@ -12,7 +12,7 @@ Run _both_ **school-api** and **school-mysql** containers together
 
 The API is accessible on http://localhost:8080 when running on Docker.
 
-Sometimes you might want to run only school-mysql container for development or testing.
+Sometimes you might want to run only **school-mysql** container for development or testing.
 
 Run _only_ **school-mysql** container
 
@@ -44,8 +44,24 @@ Install Chai and SuperTest
 
 `npm install chai supertest -D`
 
+### Run
+
+Run the app for development or testing
+
+`node app.js`
+
 ### Unit Tests
-Unit tests requires school-mysql container to be up before executing.
+Unit tests requires **school-mysql** container to be up before executing.
+
+Run all unit tests
+
+`npm test`
+
+Run a _single_ unit test
+
+`mocha tests/test-school.js`  
+`mocha tests/test-teachers.js`  
+`mocha tests/test-students.js`
 
 ## Node.js Stuffs
 The project uses the following packages,
