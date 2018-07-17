@@ -9,7 +9,7 @@ var app = require('../app');
 describe('School routes', function() {
 	it('should register', function(done) {
 		request(app)
-			.post('/register')
+			.post('/api/register')
 			.send({
 				"teacher": "teacherken@gmail.com",
 				"students": ["studentjon@example.com", "studenthon@example.com"]
@@ -19,7 +19,7 @@ describe('School routes', function() {
 	
 	it('should get a list of common students', function(done) {
 		request(app)
-			.get('/commonstudents?teacher=teacherken@example.com')
+			.get('/api/commonstudents?teacher=teacherken@example.com')
 			.expect('Content-Type', /json/)
 			.expect(function(res) {
 				if (res.statusCode != 200) {
@@ -35,7 +35,7 @@ describe('School routes', function() {
 	
 	it('should suspend a student', function(done) {
 		request(app)
-			.post('/suspend')
+			.post('/api/suspend')
 			.send({ "student": "studentjon@example.com" })
 			.set('Accept', 'application/json')
 			.expect(204)
@@ -44,7 +44,7 @@ describe('School routes', function() {
 	
 	it('should get a list of receipients of notification', function(done) {
 		request(app)
-			.post('/retrievefornotifications')
+			.post('/api/retrievefornotifications')
 			.send({
 				"teacher": "teacherken@gmail.com",
 				"notification": "Hello students! @studentagnes@example.com @studentmiche@example.com"
