@@ -77,7 +77,10 @@ The project uses the following packages,
 * [Security best practices for production Express apps](https://expressjs.com/en/advanced/best-practice-security.html)
 
 ## Docker Stuffs
+The project uses [wait-for](https://github.com/Eficode/wait-for) script to start the **school-api** container after **school-mysql** container is up and running.
+
 ### Images
+The project uses the following Docker images,
 * [node](https://hub.docker.com/r/_/node/)
 * [mysql](https://hub.docker.com/_/mysql/)
 
