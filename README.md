@@ -75,7 +75,7 @@ Run a _single_ unit test
 `mocha tests/test-students.js`
 
 ## Work-in-progress
-Under the `ecs` branch, there are files related to deployment to AWS ECS.
+Under the `ecs` branch, there are additional files related to deployment to AWS ECS.
 
 ## Node.js Stuffs
 The project uses the following packages,
