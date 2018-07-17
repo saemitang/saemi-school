@@ -22,18 +22,18 @@ module.exports = app;
 
 // Endpoints
 
-app.get('/teachers', teachers.list);
-app.post('/teachers', teachers.create);
-app.delete('/teachers', teachers.delete);
+app.get('/api/teachers', teachers.list);
+app.post('/api/teachers', teachers.create);
+app.delete('/api/teachers', teachers.delete);
 
-app.get('/students', students.list);
-app.post('/students', students.create);
-app.delete('/students', students.delete);
+app.get('/api/students', students.list);
+app.post('/api/students', students.create);
+app.delete('/api/students', students.delete);
 
-app.post('/register', school.register);
-app.get('/commonstudents', school.commonstudents);
-app.post('/suspend', school.suspend);
-app.post('/retrievefornotifications', school.retrievefornotifications);
+app.post('/api/register', school.register);
+app.get('/api/commonstudents', school.commonstudents);
+app.post('/api/suspend', school.suspend);
+app.post('/api/retrievefornotifications', school.retrievefornotifications);
 
 const port = 3000;
 
