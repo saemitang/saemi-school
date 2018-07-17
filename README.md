@@ -2,6 +2,8 @@
 An API implementation example using Node.js, MySQL and Docker.
 
 ## Running
+Before running the project, make sure you have [Docker](https://www.docker.com/community-edition) installed.
+
 The project uses Docker Compose to run the following Docker containers,
 1. **school-api** (Node.js)
 2. **school-mysql** (MySQL)
@@ -11,12 +13,6 @@ Run _both_ **school-api** and **school-mysql** containers together
 `docker-compose -f docker-compose.mysql.yml -f docker-compose.node.yml up`
 
 The API is accessible on `http://localhost:3000` when running on Docker.
-
-Sometimes you might want to run only **school-mysql** container for development or testing.
-
-Run _only_ **school-mysql** container
-
-`docker-compose -f docker-compose.mysql.yml up`
 
 ### API Endpoints
 The API endpoints can be accessed via the following urls,
@@ -56,6 +52,10 @@ Install Chai and SuperTest
 
 ### Run
 Before running the app, make sure the **school-mysql** container is up and running.
+
+Run _only_ **school-mysql** container
+
+`docker-compose -f docker-compose.mysql.yml up`
 
 Run the app for development or testing
 
