@@ -3,15 +3,15 @@ services:
   node:
     container_name: school-api
     image: node:8-alpine
+    ports:
+      - "3000:3000"
     restart: always
     user: node
     working_dir: /home/node/app
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=local
     volumes:
       - ./:/home/node/app
     depends_on:
       - mysql
-    ports:
-      - "8080:3000"
     command: sh -c './wait-for mysql:3306 -- npm start'

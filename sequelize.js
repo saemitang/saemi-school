@@ -10,7 +10,7 @@ const env = process.env.NODE_ENV || 'development';
 
 let host = 'localhost'
 
-if (env == 'production') {
+if (env == 'local') {
 	host = 'mysql'
 }
 
