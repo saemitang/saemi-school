@@ -10,7 +10,7 @@ Run _both_ **school-api** and **school-mysql** containers together
 
 `docker-compose -f docker-compose.mysql.yml -f docker-compose.node.yml up`
 
-The API is accessible on http://localhost:8080 when running on Docker.
+The API is accessible on `http://localhost:3000` when running on Docker.
 
 Sometimes you might want to run only **school-mysql** container for development or testing.
 
@@ -18,7 +18,17 @@ Run _only_ **school-mysql** container
 
 `docker-compose -f docker-compose.mysql.yml up`
 
+### API Endpoints
+The API endpoints can be accessed via the following urls,
+
+Register - `http://localhost:3000/api/register`  
+Common Students - `http://localhost:3000/api/commonstudents`  
+Suspend - `http://localhost:3000/api/suspend`  
+Retrieve for Notifications - `http://localhost:3000/api/retrievefornotifications`  
+
 ## Project
+The following are the steps taken to create the project.
+
 ### Development Environment
 Setup the development environment by installing the following,
 
@@ -64,6 +74,9 @@ Run a _single_ unit test
 `mocha tests/test-teachers.js`  
 `mocha tests/test-students.js`
 
+## Work-in-progress
+Under the `ecs` branch, there are files related to deployment to AWS ECS.
+
 ## Node.js Stuffs
 The project uses the following packages,
 * [Body Parser](https://www.npmjs.com/package/body-parser)
@@ -75,6 +88,7 @@ The project uses the following packages,
 
 ### References
 * [Security best practices for production Express apps](https://expressjs.com/en/advanced/best-practice-security.html)
+* [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 ## Docker Stuffs
 The project uses [wait-for](https://github.com/Eficode/wait-for) script to start the **school-api** container after **school-mysql** container is up and running.
