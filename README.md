@@ -2,6 +2,14 @@
 An API implementation example using Node.js, MySQL and Docker.
 
 ## Running
+Check out the project
+
+`git clone https://github.com/saemitang/saemi-school.git`
+
+Install the required packages for the project
+
+`npm install`
+
 Before running the project, make sure you have [Docker](https://www.docker.com/community-edition) installed.
 
 The project uses Docker Compose to run the following Docker containers,
@@ -17,10 +25,10 @@ The API is accessible on `http://localhost:3000` when running on Docker.
 ### API Endpoints
 The API endpoints can be accessed via the following urls,
 
-Register - `http://localhost:3000/api/register`  
-Common Students - `http://localhost:3000/api/commonstudents`  
-Suspend - `http://localhost:3000/api/suspend`  
-Retrieve for Notifications - `http://localhost:3000/api/retrievefornotifications`  
+* Register - `http://localhost:3000/api/register`  
+* Common Students - `http://localhost:3000/api/commonstudents`  
+* Suspend - `http://localhost:3000/api/suspend`  
+* Retrieve for Notifications - `http://localhost:3000/api/retrievefornotifications`  
 
 ## Project
 The following are the steps taken to create the project.
