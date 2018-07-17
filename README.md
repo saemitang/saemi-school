@@ -2,15 +2,18 @@
 An API implementation example using Node.js, MySQL and Docker.
 
 ## Running
+Before running the project, make sure you have installed the following,
+
+[NPM & Node.js](https://nodejs.org/en/download/)  
+[Docker](https://www.docker.com/community-edition)
+
 Check out the project
 
 `git clone https://github.com/saemitang/saemi-school.git`
 
-Install the required packages for the project
+Install the required packages for the project _(run the following command at the directory that you check out earlier)_
 
 `npm install`
-
-Before running the project, make sure you have [Docker](https://www.docker.com/community-edition) installed.
 
 The project uses Docker Compose to run the following Docker containers,
 1. **school-api** (Node.js)
@@ -32,12 +35,6 @@ The API endpoints can be accessed via the following urls,
 
 ## Project
 The following are the steps taken to create the project.
-
-### Development Environment
-Setup the development environment by installing the following,
-
-[NPM & Node.js](https://nodejs.org/en/download/)  
-[Docker](https://www.docker.com/community-edition)
 
 ### Setup
 Setup the project using the following commands,
