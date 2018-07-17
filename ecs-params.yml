@@ -1,0 +1,9 @@
+version: 1
+task_definition:
+  services:
+    mysql:
+      cpu_shares: 64
+      mem_limit: 128MB
+    node:
+      cpu_shares: 64
+      mem_limit: 128MB

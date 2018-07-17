@@ -1,0 +1,34 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=school
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=yDb.435rT
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /saemi/ecs/saemi-school
+        awslogs-region: ap-southeast-1
+        awslogs-stream-prefix: mysql
+  node:
+    image: saemi/saemi-school:latest
+    ports:
+      - "8080:3000"
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    links:
+      - mysql
+    command: sh -c 'sleep 20 && npm start'
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: /saemi/ecs/saemi-school
+        awslogs-region: ap-southeast-1
+        awslogs-stream-prefix: node
